@@ -1,5 +1,39 @@
+import java.util.Scanner;
+
 public class findMaxElement {
     public static void main(String[] args) {
-        System.out.println("ok");
+       Scanner keyboard = new Scanner(System.in);
+       int size;
+       int[] array;
+       do {
+           System.out.print("Enter a size: ");
+           size = keyboard.nextInt();
+           if (size > 20) {
+               System.out.println("Size should not exceed 20");
+           }
+       } while (size < 20);
+
+       array = new int[size];
+       int i = 0;
+       while (i < size) {
+           System.out.println("Enter element " + (i +1) + " : ");
+           array[i] = keyboard.nextInt();
+           i++;
+       }
+
+        System.out.println("Property list: ");
+       for (int j = 0; j < size ; j++) {
+           System.out.println(array[j] +"\t");
+       }
+
+       int max = array[0];
+       int index = 1;
+       for (int j = 0; j < size; j++) {
+           if (array[j] > max) {
+               max = array[j];
+               index = j + 1;
+           }
+       }
+        System.out.println("The largest property value in the list is " + max + " at position " + index);
     }
 }
